@@ -3,7 +3,7 @@ import { Feed } from '../core/feed';
 import { AccountFollowersFeedResponse, AccountFollowersFeedResponseUsersItem } from '../responses';
 
 export class AccountFollowersFeed extends Feed<AccountFollowersFeedResponse, AccountFollowersFeedResponseUsersItem> {
-  searchSurface?: string = 'follow_list_page';
+  searchSurface?: string;
   /**
    * only 'default' seems to work
    */
@@ -29,7 +29,6 @@ export class AccountFollowersFeed extends Feed<AccountFollowersFeedResponse, Acc
         order: this.order,
         query: this.query,
         enable_groups: this.enableGroups,
-        rank_token: this.rankToken,
       },
     });
     this.state = body;

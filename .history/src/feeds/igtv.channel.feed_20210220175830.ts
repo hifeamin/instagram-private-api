@@ -27,7 +27,6 @@ export class IgtvChannelFeed extends Feed<IgtvChannelFeedResponseRootObject, Igt
         _csrftoken: this.client.state.cookieCsrfToken,
         _uuid: this.client.state.uuid,
         is_charging: this.client.state.isCharging ? '1' : '0',
-        is_dark_mode: '0',
         will_sound_on: '0',
       },
       method: 'POST',

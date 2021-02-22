@@ -3,7 +3,7 @@ import { Feed } from '../core/feed';
 import { AccountFollowingFeedResponse, AccountFollowingFeedResponseUsersItem } from '../responses';
 
 export class AccountFollowingFeed extends Feed<AccountFollowingFeedResponse, AccountFollowingFeedResponseUsersItem> {
-  searchSurface?: string = 'follow_list_page';
+  searchSurface?: string;
   order?: 'default' | 'date_followed_latest' | 'date_followed_earliest' = 'default';
   query = '';
   enableGroups = true;
@@ -25,7 +25,7 @@ export class AccountFollowingFeed extends Feed<AccountFollowingFeedResponse, Acc
         rank_token: this.rankToken,
         max_id: this.nextMaxId,
         search_surface: this.searchSurface,
-        //order: this.order,
+        order: this.order,
         query: this.query,
         enable_groups: this.enableGroups,
         includes_hashtags: this.includesHashtags,

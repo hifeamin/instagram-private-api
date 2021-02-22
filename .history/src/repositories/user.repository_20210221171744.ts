@@ -14,7 +14,7 @@ export class UserRepository extends Repository {
   /**
    * Get user info with user id
    * @param id Instagran user id
-   * @param from_module which madule called before this, some options: undefined | profile | blended_search | feed_contextual_chain | feed_contextual_profile | tags_list_feed_contextual_profile | comments_v2_feed_contextual_chain | likers | دewsfeed_you
+   * @param from_module which madule called before this, some options: undefined | profile | blended_search | feed_contextual_chain | feed_contextual_profile | tags_list_feed_contextual_profile | comments_v2_feed_contextual_chain | likers | ewsfeed_you
    */
   async info(id: string | number, fromModule: string = undefined): Promise<UserRepositoryInfoResponseUser> {
     const { body } = await this.client.request.send<UserRepositoryInfoResponseRootObject>({

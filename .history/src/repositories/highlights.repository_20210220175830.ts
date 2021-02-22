@@ -17,7 +17,6 @@ export class HighlightsRepository extends Repository {
         phone_id: this.client.state.phoneId,
         battery_level: this.client.state.batteryLevel,
         is_charging: Number(this.client.state.isCharging),
-        is_dark_mode: 0,
         will_sound_on: 0,
       },
     });

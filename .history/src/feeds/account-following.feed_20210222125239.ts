@@ -25,7 +25,7 @@ export class AccountFollowingFeed extends Feed<AccountFollowingFeedResponse, Acc
         rank_token: this.rankToken,
         max_id: this.nextMaxId,
         search_surface: this.searchSurface,
-        //order: this.order,
+        order: this.order,
         query: this.query,
         enable_groups: this.enableGroups,
         includes_hashtags: this.includesHashtags,

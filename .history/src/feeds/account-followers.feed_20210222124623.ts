@@ -3,7 +3,7 @@ import { Feed } from '../core/feed';
 import { AccountFollowersFeedResponse, AccountFollowersFeedResponseUsersItem } from '../responses';
 
 export class AccountFollowersFeed extends Feed<AccountFollowersFeedResponse, AccountFollowersFeedResponseUsersItem> {
-  searchSurface?: string = 'follow_list_page';
+  searchSurface?: string = follow_list_page;
   /**
    * only 'default' seems to work
    */

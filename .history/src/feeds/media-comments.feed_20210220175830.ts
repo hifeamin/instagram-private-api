@@ -4,11 +4,6 @@ import { MediaCommentsFeedResponse, MediaCommentsFeedResponseCommentsItem } from
 
 export class MediaCommentsFeed extends Feed<MediaCommentsFeedResponse, MediaCommentsFeedResponseCommentsItem> {
   id: string;
-  canSupportThreading: boolean = true;
-  carouselIndex: number = 0;
-  analyticsModule: string = 'comments_v2_feed_contextual_profile';
-  isCarouselBumpedPost: boolean = false;
-  feedPosition: number = 0;
   @Expose()
   private nextMaxId: string;
   @Expose()
@@ -24,13 +19,9 @@ export class MediaCommentsFeed extends Feed<MediaCommentsFeedResponse, MediaComm
     const { body } = await this.client.request.send<MediaCommentsFeedResponse>({
       url: `/api/v1/media/${this.id}/comments/`,
       qs: {
-        can_support_threading: this.canSupportThreading,
+        can_support_threading: true,
         max_id: this.nextMaxId,
         min_id: this.nextMinId,
-        carousel_index: this.carouselIndex,
-        analytics_module: this.analyticsModule,
-        is_carousel_bumped_post: this.isCarouselBumpedPost,
-        feed_position: this.feedPosition,
       },
     });
     this.state = body;
