@@ -1,5 +1,5 @@
 {
-  "name": "instagram-private-api",
+  "name": "@amin.mirzaee/instagram-private-api",
   "description": "Instagram private API wrapper for full access to instagram",
   "version": "1.43.3",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dilame/instagram-private-api.git"
+    "url": "git+https://github.com/dilame/instagram-private-api.git"
   },
   "homepage": "https://github.com/dilame/instagram-private-api",
   "scripts": {
@@ -76,5 +76,10 @@
     "typedoc": "^0.15.0",
     "typedoc-plugin-markdown": "^2.0.11",
     "typescript": "^3.7.2"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "author": ""
 }
