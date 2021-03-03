@@ -15,8 +15,8 @@ export class NewsRepository extends Repository {
   }
 
   public async inboxSeen() {
-    const { body } = await this.client.request.send({
-      url: `/api/v1/news/inbox_seen/`,
+    const { body } = await this.client.request.send<NewsRepositoryInboxResponseRootObject>({
+      url: '/api/v1/news/inbox_seen/',
       method: 'POST',
       form: {
         _csrftoken: this.client.state.cookieCsrfToken,
@@ -26,17 +26,18 @@ export class NewsRepository extends Repository {
     return body;
   }
 
-  public async notificationsBadge(userId?: string | number) {
-    await this.client.request.send({
-      url: `/api/v1/notifications/badge/`,
+  public async notificationsBadge(userId: string | number) {
+    const { body } = await this.client.request.send<NewsRepositoryInboxResponseRootObject>({
+      url: '/api/v1/notifications/badge/',
       method: 'POST',
       form: {
         phone_id: this.client.state.phoneId,
         _csrftoken: this.client.state.cookieCsrfToken,
-        user_ids: userId ?? this.client.state.extractUserId(),
+        user_ids: userId,
         device_id: this.client.state.deviceId,
         _uuid: this.client.state.uuid,
       },
     });
+    return body;
   }
 }

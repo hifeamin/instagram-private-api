@@ -27,7 +27,7 @@ export class NewsRepository extends Repository {
   }
 
   public async notificationsBadge(userId?: string | number) {
-    await this.client.request.send({
+    const response = await this.client.request.send({
       url: `/api/v1/notifications/badge/`,
       method: 'POST',
       form: {

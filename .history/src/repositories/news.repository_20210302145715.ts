@@ -27,7 +27,7 @@ export class NewsRepository extends Repository {
   }
 
   public async notificationsBadge(userId?: string | number) {
-    await this.client.request.send({
+    const { body } = await this.client.request.send({
       url: `/api/v1/notifications/badge/`,
       method: 'POST',
       form: {
@@ -38,5 +38,6 @@ export class NewsRepository extends Repository {
         _uuid: this.client.state.uuid,
       },
     });
+    return body;
   }
 }

@@ -15,8 +15,8 @@ export class NewsRepository extends Repository {
   }
 
   public async inboxSeen() {
-    const { body } = await this.client.request.send({
-      url: `/api/v1/news/inbox_seen/`,
+    const { body } = await this.client.request.send<NewsRepositoryInboxResponseRootObject>({
+      url: '/api/v1/news/inbox_seen/',
       method: 'POST',
       form: {
         _csrftoken: this.client.state.cookieCsrfToken,
@@ -27,8 +27,8 @@ export class NewsRepository extends Repository {
   }
 
   public async notificationsBadge(userId?: string | number) {
-    await this.client.request.send({
-      url: `/api/v1/notifications/badge/`,
+    const { body } = await this.client.request.send<NewsRepositoryInboxResponseRootObject>({
+      url: '/api/v1/notifications/badge/',
       method: 'POST',
       form: {
         phone_id: this.client.state.phoneId,
@@ -38,5 +38,6 @@ export class NewsRepository extends Repository {
         _uuid: this.client.state.uuid,
       },
     });
+    return body;
   }
 }

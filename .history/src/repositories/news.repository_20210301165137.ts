@@ -14,29 +14,15 @@ export class NewsRepository extends Repository {
     return body;
   }
 
-  public async inboxSeen() {
-    const { body } = await this.client.request.send({
-      url: `/api/v1/news/inbox_seen/`,
+  public async notificationsBadge() {
+    const { body } = await this.client.request.send<NewsRepositoryInboxResponseRootObject>({
+      url: '/api/v1/notifications/badge/',
       method: 'POST',
-      form: {
-        _csrftoken: this.client.state.cookieCsrfToken,
-        _uuid: this.client.state.uuid,
+      qs: {
+        phone_id: this.client.state.phoneId,
+        timezone_offset: this.client.state.timezoneOffset,
       },
     });
     return body;
-  }
-
-  public async notificationsBadge(userId?: string | number) {
-    await this.client.request.send({
-      url: `/api/v1/notifications/badge/`,
-      method: 'POST',
-      form: {
-        phone_id: this.client.state.phoneId,
-        _csrftoken: this.client.state.cookieCsrfToken,
-        user_ids: userId ?? this.client.state.extractUserId(),
-        device_id: this.client.state.deviceId,
-        _uuid: this.client.state.uuid,
-      },
-    });
   }
 }

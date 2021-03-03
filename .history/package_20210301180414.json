@@ -1,12 +1,10 @@
 {
   "name": "@amin.mirzaee/instagram-private-api",
   "description": "Instagram private API wrapper for full access to instagram",
-  "version": "1.43.7",
+  "version": "1.43.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "license": "MIT",
   "engines": {
     "node": ">=8.0.0"
